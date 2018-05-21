@@ -6,34 +6,43 @@
     xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet id="1" author="oscarw" context="mssql">
-        <createTable tableName="Employee" schemaName="dbo">
+    <changeSet id="1" author="oscarw" context="postgres">
+        <preConditions>
+            <dbms type="postgresql" />
+        </preConditions>
+        <createTable tableName="Employee" schemaName="public">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false" />
             </column>    
             <column name="firstName" type="varchar(255)" />
             <column name="lastName" type="varchar(255)" />
-            <column name="dateOfBirth" type="datetime" />
+            <column name="dateOfBirth" type="date" />
         </createTable>
     </changeSet>
-    <changeSet id="2" author="oscarw" context="mssql">
-        <addColumn tableName="Employee">
+    <changeSet id="2" author="oscarw" context="postgres">
+        <preConditions>
+            <dbms type="postgresql" />
+        </preConditions>
+        <addColumn tableName="Employee" schemaName="public">
             <column name="address" type="text" />
         </addColumn>
     </changeSet>
-    <changeSet id="3" author="oscarw" context="mssql">
-        <loadData catalogName="TEST"
+    <changeSet id="3" author="oscarw" context="postgres" runOnChange="true">
+        <preConditions>
+            <dbms type="postgresql" />
+        </preConditions>
+        <loadData 
                 encoding="UTF-8"
                 file="src/main/resources/liquibase/employee.csv"
                 quotchar='"'
-                schemaName="dbo"
+                schemaName="public"
                 separator=","
-                tableName="employee">
+                tableName="Employee">
         </loadData>
         <rollback>
-            <delete catalogName="TEST"
-            schemaName="dbo"
-            tableName="employee">
+            <delete
+            schemaName="public"
+            tableName="Employee">
                 <where>id in (1,2,3)</where>
             </delete>
         </rollback>

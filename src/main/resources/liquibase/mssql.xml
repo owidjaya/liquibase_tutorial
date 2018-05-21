@@ -6,7 +6,11 @@
     xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
     <changeSet id="1" author="oscarw" context="mssql">
+        <preConditions>
+            <dbms type="mssql" />
+        </preConditions>
         <createTable tableName="Employee" schemaName="dbo">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false" />
@@ -17,11 +21,17 @@
         </createTable>
     </changeSet>
     <changeSet id="2" author="oscarw" context="mssql">
+        <preConditions>
+            <dbms type="mssql" />
+        </preConditions>
         <addColumn tableName="Employee">
             <column name="address" type="text" />
         </addColumn>
     </changeSet>
     <changeSet id="3" author="oscarw" context="mssql">
+        <preConditions>
+            <dbms type="mssql" />
+        </preConditions>
         <loadData catalogName="TEST"
                 encoding="UTF-8"
                 file="src/main/resources/liquibase/employee.csv"

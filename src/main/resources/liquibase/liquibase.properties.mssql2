@@ -1,5 +1,5 @@
 driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
-url: jdbc:sqlserver://127.0.0.1:1433;databaseName=TEST
+url: jdbc:sqlserver://127.0.0.1:1432;databaseName=TEST
 username: SA
 password: p@ssw0rd
 verbose: true
