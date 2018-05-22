@@ -16,7 +16,7 @@
             </column>    
             <column name="firstName" type="varchar(255)" />
             <column name="lastName" type="varchar(255)" />
-            <column name="dateOfBirth" type="date" />
+            <column name="dateOfBirth" type="datetime" />
         </createTable>
     </changeSet>
     <changeSet id="2" author="oscarw" context="postgres">

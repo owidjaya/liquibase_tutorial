@@ -1,0 +1,1 @@
+ mvn liquibase:rollbackSQL -Dliquibase.changeLogFile=src/main/resources/liquibase/nestedChangeLog.xml -Dliquibase.contexts=mssql -Dliquibase.propertyFile=src/main/resources/liquibase/liquibase.properties.mssql -Dliquibase.rollbackCount=1

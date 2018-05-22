@@ -1,0 +1,1 @@
+ mvn liquibase:update -Dliquibase.changeLogFile=src/main/resources/liquibase/basicChangeLog.xml -Dliquibase.contexts=mssql -Dliquibase.propertyFile=src/main/resources/liquibase/liquibase.properties.mssql2

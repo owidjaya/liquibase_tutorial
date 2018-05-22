@@ -8,7 +8,7 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet id="1" author="oscarw" context="mssql">
-        <preConditions>
+        <preConditions onFail="CONTINUE">
             <dbms type="mssql" />
         </preConditions>
         <createTable tableName="Employee" schemaName="dbo">
@@ -21,7 +21,7 @@
         </createTable>
     </changeSet>
     <changeSet id="2" author="oscarw" context="mssql">
-        <preConditions>
+        <preConditions onFail="CONTINUE">
             <dbms type="mssql" />
         </preConditions>
         <addColumn tableName="Employee">
@@ -29,7 +29,7 @@
         </addColumn>
     </changeSet>
     <changeSet id="3" author="oscarw" context="mssql">
-        <preConditions>
+        <preConditions onFail="CONTINUE">
             <dbms type="mssql" />
         </preConditions>
         <loadData catalogName="TEST"

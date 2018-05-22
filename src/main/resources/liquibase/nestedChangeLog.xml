@@ -9,4 +9,5 @@
     <include file="mssql.xml" relativeToChangelogFile="true" />
     <include file="postgres.xml" relativeToChangelogFile="true" />
     <include file="mariadb.xml" relativeToChangelogFile="true" />
+    <include file="mssql.sql" relativeToChangelogFile="true" />
 </databaseChangeLog>
